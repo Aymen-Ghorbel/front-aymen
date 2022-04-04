@@ -5,14 +5,16 @@ export function initializeKeycloak(keycloak: KeycloakService): () => Promise<boo
     return () =>
         keycloak.init({
             config: {
-                url: 'http://localhost:8085/auth',
-                realm: 'SpringBootKeycloak',
-                clientId: 'login-app',
+                url: 'http://20.67.134.169:8080/auth',
+                realm: 'credit-workflow',
+                clientId: 'client',
             },
             initOptions: {
                 checkLoginIframe: true,
                 checkLoginIframeInterval: 25
             },
+            enableBearerInterceptor: true,
+            bearerPrefix: 'Bearer',
             loadUserProfileAtStartUp: true
         });
 }

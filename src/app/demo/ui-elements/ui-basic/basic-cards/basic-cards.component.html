@@ -11,3 +11,18 @@
     </div>
   </div>
 </div>
+<button type="button" class="btn btn-primary" (click)="modalDefault.show()">Launch demo modal</button>
+
+<app-ui-modal #modalDefault>
+  <div class="app-modal-header">
+    <h5 class="modal-title">Modal Title</h5>
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="modalDefault.hide()"><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="app-modal-body">
+    <p>Woohoo, you're reading this text in a modal!</p>
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalDefault.hide()">Close</button>
+    <button type="button" class="btn btn-primary">Save changes</button>
+  </div>
+</app-ui-modal>

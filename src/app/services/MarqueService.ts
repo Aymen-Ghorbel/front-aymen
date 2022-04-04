@@ -10,7 +10,7 @@ import { Marque } from '../models/marque';
 
 export class MarqueService {
 
-    private baseUrl = 'http://localhost:9008/api/marque';
+    private baseUrl = 'http://localhost:9002/api/marque';
 
     constructor(private http: HttpClient) { }
 
@@ -25,7 +25,7 @@ export class MarqueService {
     addImage(L: File): Observable<any>{
         const file = new FormData();
          file.append('file', L);
-        return this.http.put('http://localhost:9008/api/upload',file)
+        return this.http.put('http://localhost:9002/api/upload',file)
     }
 
 

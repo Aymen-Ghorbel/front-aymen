@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Marque } from 'src/app/models/marque';
 import { Modele } from 'src/app/models/modele';
 import { MarqueService } from 'src/app/services/MarqueService';
@@ -30,14 +30,25 @@ nbreDeRapports: number;
 transmission: any;
 marque: Marque;
 idModel: number;
-  constructor(private modeleservice : ModeleService, private route: ActivatedRoute) { }
+token :string;
+  constructor(private modeleservice : ModeleService, private route: ActivatedRoute, private route2: Router) { }
 
   ngOnInit() {
+
+    this.modeleservice.emptyCredit().subscribe((res)=>{
+      this.token=res;
+      console.log(res);
+    })
     this.idModel = this.route.snapshot.params['idModel'];
     this.modeleservice.getModele(this.idModel).subscribe((res)=> {
       this.model=res;
     });
 
+}
+
+goPlaces() {
+  
+  this.route2.navigate(['/', 'forms','basic']);
 }
 
 }

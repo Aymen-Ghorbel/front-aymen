@@ -5,6 +5,9 @@ import {AuthComponent} from './theme/layout/auth/auth.component';
 import { AuthGuard } from './utility/app.guard';
 import { BasicModelsComponent } from './demo/ui-elements/ui-basic/basic-models/basic-models.component';
 import { BasicDetailsComponent } from './demo/ui-elements/ui-basic/basic-details/basic-details.component';
+import { BasicElementsComponent } from './demo/pages/form-elements/basic-elements/basic-elements.component';
+import { BasicModalComponent } from './demo/ui-elements/ui-basic/basic-modal/basic-modal.component';
+import { BasicOtherComponent } from './demo/ui-elements/ui-basic/basic-other/basic-other.component';
 
 const routes: Routes = [
   {
@@ -49,8 +52,11 @@ const routes: Routes = [
         loadChildren: () => import('./demo/pages/sample-page/sample-page.module').then(module => module.SamplePageModule)
       },
       // { path: 'basic/models/:idBrand', component: BasicModelsComponent }
-      { path: 'basic/cards/basic/modele/ModelsByBrand/:idBrand', component: BasicModelsComponent },
-      { path: 'DetailsByModel/:idModel', component: BasicDetailsComponent },
+      { path: 'basic/cards/basic/modele/ModelsByBrand/:idBrand', component: BasicModelsComponent,canActivate: [AuthGuard] },
+      { path: 'DetailsByModel/:idModel', component: BasicDetailsComponent,canActivate: [AuthGuard] },
+      { path: 'basic/forms', component: BasicElementsComponent,canActivate: [AuthGuard] },
+      { path: 'basic/modal/:idModel', component: BasicModalComponent,canActivate: [AuthGuard] },
+
     ]
   },
   {
