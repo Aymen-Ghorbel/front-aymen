@@ -1,26 +1,35 @@
 
-<div class="card" style="width: 35rem;">
-  <img class="card-img-top" src={{model.imageUrl}} alt="Card image cap">
-  <div class="card-body">
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><a style="font-weight: bold;">MARQUE:&emsp;</a>{{model.nom}}</li>
-      <li class="list-group-item"><a style="font-weight: bold;">PRIX:&emsp;</a>{{model.prix}} DT</li>
-      <li class="list-group-item"><a style="font-weight: bold;">ENERGIE:&emsp;</a>{{model.energie}}</li>
-      <li class="list-group-item"><a style="font-weight: bold;">BOITE:&emsp;</a>{{model.boite}}</li>  
-      <li class="list-group-item"><a style="font-weight: bold;">PUISSANCE FISCALE:&emsp;</a>{{model.puissanceFiscale}} cv</li>
-      <li class="list-group-item"><a style="font-weight: bold;">NOMBRE DE CYLINDRES:&emsp;</a>{{model.nbreDeCylindres}}</li>
-      <li class="list-group-item"><a style="font-weight: bold;">NOMBRE DE PLACES:&emsp;</a>{{model.nbreDePlaces}}</li>
-      <li class="list-group-item"><a style="font-weight: bold;">NOMBRE DE RAPPORTS:&emsp;</a>    {{model.nbreDeRapports}}</li>
-    </ul> 
+<div class="card" style="width: auto;">
+  <img class="card-img-top" src={{model.imageUrl}} alt="Card image cap" style="width: 40rem; align-self: center;">
+  
+  <div class="card-body" style="align-self: center;">
+    <div class="row">
+      <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a style="font-weight: bold;">MARQUE:&emsp;</a>{{model.nom}}</li>
+            <li class="list-group-item"><a style="font-weight: bold;">PRIX:&emsp;</a>{{model.prix}} DT</li>
+            <li class="list-group-item"><a style="font-weight: bold;">ENERGIE:&emsp;</a>{{model.energie}}</li>
+            <li class="list-group-item"><a style="font-weight: bold;">BOITE:&emsp;</a>{{model.boite}}</li>  
+      </ul> 
+      <ul class="list-group list-group-flush">
+            <li class="list-group-item"><a style="font-weight: bold;">PUISSANCE FISCALE:&emsp;</a>{{model.puissanceFiscale}} cv</li>
+            <li class="list-group-item"><a style="font-weight: bold;">NOMBRE DE CYLINDRES:&emsp;</a>{{model.nbreDeCylindres}}</li>
+            <li class="list-group-item"><a style="font-weight: bold;">NOMBRE DE PLACES:&emsp;</a>{{model.nbreDePlaces}}</li>
+            <li class="list-group-item"><a style="font-weight: bold;">NOMBRE DE RAPPORTS:&emsp;</a>    {{model.nbreDeRapports}}</li>
+      </ul> 
+    </div>
+    
     <hr>
     <!-- <a routerLink="basic/forms" class="btn btn-primary">Demander un crédit</a>-->
-    <a (click)=goPlaces() class="btn btn-primary">Demander un crédit</a> 
+    <div class="text-right">
+      <a (click)=goPlaces() class="btn btn-primary">Demander un crédit</a>
+    </div>
+    
   </div>
 </div>
 
 
 
-<button type="button" class="btn btn-primary" data-toggle="modal" (click)="exampleModalCenter.show()">Test Pop-Up</button>
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" (click)="exampleModalCenter.show()">Test Pop-Up</button> -->
       <app-ui-modal #exampleModalCenter dialogClass="modal-dialog-centered">
         <div class="app-modal-header">
           <h5 class="modal-title">Oops!</h5>

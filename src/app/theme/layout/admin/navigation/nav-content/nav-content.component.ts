@@ -3,6 +3,7 @@ import { NavigationItem } from '../navigation';
 import { NextConfig } from '../../../../../app-config';
 import { Location } from '@angular/common';
 import { KeycloakService } from 'keycloak-angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-content',
@@ -25,7 +26,7 @@ export class NavContentComponent implements OnInit, AfterViewInit {
   @ViewChild('navbarContent', {static: false}) navbarContent: ElementRef;
   @ViewChild('navbarWrapper', {static: false}) navbarWrapper: ElementRef;
 
-  constructor(public nav: NavigationItem, private zone: NgZone, private location: Location, private keycloakService: KeycloakService) {
+  constructor(public nav: NavigationItem, private zone: NgZone, private location: Location, private keycloakService: KeycloakService, private route: Router) {
     this.nextConfig = NextConfig.config;
     this.windowWidth = window.innerWidth;
 
@@ -150,5 +151,12 @@ export class NavContentComponent implements OnInit, AfterViewInit {
   logout(): void {
     this.keycloakService.logout();
   }
+
+  goPlaces() {
+  
+    this.route.navigate(['/','dashboard','default','profile']);
+  }
+  
+  
 
 }

@@ -7,7 +7,7 @@
            
             <div class="form-group">
               <label>ID</label>
-              <input type="text" class="form-control" placeholder="ID">
+              <input type="text" class="form-control" placeholder="ID" >
             </div>
             <div class="form-group">
               <label>Nom</label>
@@ -18,28 +18,28 @@
               <input type="text" class="form-control" placeholder="Prénom">
             </div>
             <div class="form-group">
-              <label>Email</label>
-              <input type="text" class="form-control" placeholder="Email">
+              <label>Age</label>
+              <input type="text" class="form-control" placeholder="Email" >
             </div>
             <div class="form-group">
-              <label>notification Token</label>
-              <input type="text" class="form-control" placeholder="notification Token">
+              <label>Durée du Remboursement</label>
+              <input type="text" class="form-control" placeholder="" >
             </div>
             <div class="form-group">
-              <label>keyCloak Id</label>
-              <input type="text" class="form-control" placeholder="keyCloak Id">
+              <label>Type du Remboursement</label>
+              <input type="text" class="form-control" placeholder="Type du Remboursement" >
             </div>
             <div class="form-group">
               <label>salaire Net</label>
-              <input type="text" class="form-control" placeholder="salaire Net">
+              <input type="text" class="form-control" placeholder="revenuClient" >
             </div>
             <div class="form-group">
-              <label>ville</label>
-              <input type="text" class="form-control" placeholder="ville">
+              <label>mensualite</label>
+              <input type="text" class="form-control" placeholder="mensualite" >
             </div>
             <div class="form-group">
-              <label>fonction</label>
-              <input type="text" class="form-control" placeholder="fonction">
+              <label>Email</label>
+              <input type="text" class="form-control" placeholder="email" >
             </div>
             
             
@@ -70,12 +70,12 @@
               <input type="text" class="form-control" placeholder="date Naissance">
             </div>
             <div class="form-group">
-              <label>code Postal</label>
-              <input type="text" class="form-control" placeholder="code Postal">
+              <label>Montant</label>
+              <input type="text" class="form-control" placeholder="Montant" >
             </div>
             <div class="form-group">
-              <label>adress</label>
-              <input type="text" class="form-control" placeholder="adress">
+              <label>Type</label>
+              <input type="text" class="form-control" placeholder="adress" >
             </div>
             <div class="form-group">
               <label for="exampleFormControlSelect1" style="font-weight: bold;">Type du contrat</label>
@@ -98,8 +98,23 @@
               </select>
             </div>
             <div class="text-right">
-              <button type="submit" class="btn btn-primary" >Confirmer</button> 
+              <button type="button" class="btn btn-primary" data-toggle="modal" (click)="exampleModalCenter.show()">Simuler un Crédit</button> 
             </div>
+
+           
+      <app-ui-modal #exampleModalCenter dialogClass="modal-dialog-centered">
+        <div class="app-modal-header">
+          <h5 class="modal-title">Oops!</h5>
+          <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="exampleModalCenter.hide()"><span aria-hidden="true">&times;</span></button>
+        </div>
+        <div class="app-modal-body">
+          <h4>Nos équipes travaillent actuellement dessus</h4>
+        </div>
+        <div class="app-modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="exampleModalCenter.hide()">Close</button>
+          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        </div>
+      </app-ui-modal>
              
           </form>
           <!-- <div class="col-md-12  text-right">

@@ -9,17 +9,20 @@
       </div>
     </div>
 </div> -->
-<h1>{{brand.nom}}</h1>
-<div class="container">
+<!-- <h1>{{brand.nom}}</h1> -->
+
+
+  <h1 class="display-4">{{brand.nom}}</h1>
+  <div class="container" >
     <div class="row">
       <div class="d-flex flex-wrap" style="width: 1200px">
         <tr *ngFor="let el of modeleList">
           <div class="col">
-            <div class="card" style="width: 18rem;">
-              <img class="card-img-top" src={{el.imageUrl}} alt="Card image cap">
+            <div class="card" style="width: 18rem;" >
+              <img class="card-img-top" src={{el.imageUrl}} alt="Card image cap" >
               <div class="card-body">
                 <h2 class="card-title">{{el.nom}}</h2>
-                <p class="card-text">à partir de {{el.prix}}</p>
+                <p class="card-text">à partir de {{el.prix}} DT</p>
                 <hr>
                 <a routerLink="/basic/modal/{{el.id}}" class="btn btn-primary">Details</a>
                 <!-- <a routerLink="/DetailsByModel/{{el.id}}" class="btn btn-primary">Details</a> -->
@@ -29,5 +32,8 @@
         </tr>
       </div>
     </div>
-</div>
+  </div>
+
+
+
 
