@@ -97,12 +97,18 @@
                 <option>Education et enseignement</option>
               </select>
             </div>
+            <!-- <div class="text-right">
+              <button type="button" class="btn btn-primary" data-toggle="modal" (click)="simulation()">Simuler un Crédit</button> 
+            </div> -->
             <div class="text-right">
-              <button type="button" class="btn btn-primary" data-toggle="modal" (click)="exampleModalCenter.show()">Simuler un Crédit</button> 
+              <a routerLink="documents" class="btn btn-primary">Upload Documents Crédit</a>
             </div>
 
            
-      <app-ui-modal #exampleModalCenter dialogClass="modal-dialog-centered">
+     
+      
+      
+            <app-ui-modal #exampleModalCenter dialogClass="modal-dialog-centered">
         <div class="app-modal-header">
           <h5 class="modal-title">Oops!</h5>
           <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="exampleModalCenter.hide()"><span aria-hidden="true">&times;</span></button>

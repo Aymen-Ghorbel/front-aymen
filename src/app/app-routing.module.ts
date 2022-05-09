@@ -9,6 +9,7 @@ import { BasicElementsComponent } from './demo/pages/form-elements/basic-element
 import { BasicModalComponent } from './demo/ui-elements/ui-basic/basic-modal/basic-modal.component';
 import { BasicTypographyComponent } from './demo/ui-elements/ui-basic/basic-typography/basic-typography.component';
 import { BasicAlertComponent } from './demo/ui-elements/ui-basic/basic-alert/basic-alert.component';
+import { BasicGridComponent } from './demo/ui-elements/ui-basic/basic-grid/basic-grid.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,7 @@ const routes: Routes = [
       },
       {
         path: 'dashboard',
-        loadChildren: () => import('./demo/dashboard/dashboard.module').then(module => module.DashboardModule),canActivate: [AuthGuard]
+        loadChildren: () => import('./demo/dashboard/dashboard.module').then(module => module.DashboardModule)/*,canActivate: [AuthGuard]*/
       },
       {
         path: 'layout',
@@ -54,11 +55,12 @@ const routes: Routes = [
       },
       // { path: 'basic/models/:idBrand', component: BasicModelsComponent }
       // { path: 'basic/cards/basic/modele/ModelsByBrand/:idBrand', component: BasicModelsComponent,canActivate: [AuthGuard] },
-      { path: 'DetailsByModel/:idModel', component: BasicDetailsComponent,canActivate: [AuthGuard] },
-      { path: 'basic/forms', component: BasicElementsComponent,canActivate: [AuthGuard] },
-      { path: 'basic/cards/modelsByBrand/:idBrand/details/:idModel', component: BasicModalComponent,canActivate: [AuthGuard] },
+      { path: 'DetailsByModel/:idModel', component: BasicDetailsComponent/*,canActivate: [AuthGuard]*/ },
+      { path: 'basic/cards/modelsByBrand/:idBrand/details/:idModel/forms', component: BasicElementsComponent/*,canActivate: [AuthGuard]*/ },
+      { path: 'basic/cards/modelsByBrand/:idBrand/details/:idModel', component: BasicModalComponent/*,canActivate: [AuthGuard]*/ },
       { path: 'basic/cards/modelsByBrand/:idBrand', component: BasicTypographyComponent},
       { path: 'profile', component: BasicAlertComponent },
+      { path: 'basic/cards/modelsByBrand/:idBrand/details/:idModel/forms/documents', component: BasicGridComponent/*,canActivate: [AuthGuard]*/ }
 
     ]
   },

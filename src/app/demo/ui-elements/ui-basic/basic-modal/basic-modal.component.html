@@ -19,27 +19,67 @@
     </div>
     
     <hr>
-    <!-- <a routerLink="basic/forms" class="btn btn-primary">Demander un crédit</a>-->
-    <div class="text-right">
-      <a (click)=goPlaces() class="btn btn-primary">Demander un crédit</a>
+
+    <div class="text-center">
+      <a (click)="ModalRemplirSimulation.show()" class="btn btn-primary">Simuler un crédit</a>
+      <a routerLink="forms" class="btn btn-primary">Demander un crédit</a>
+      <!-- <a (click)=goPlaces() class="btn btn-primary">Simuler un crédit</a> -->
     </div>
     
   </div>
 </div>
 
 
+<app-ui-modal #modalSimulation dialogClass="modal-dialog-centered" >
+  <div class="app-modal-header">
+    <!-- <h2 class="modal-title">Modifier le profil</h2> -->
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="modalSimulation.hide()"><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="app-modal-body">
+    <h2 class="text-center">Calcul en cours...</h2>
+    <div class="d-flex justify-content-center">
+      
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalSimulation.hide()">Ok</button>
+    <!-- <button type="button" class="btn btn-primary" (click)=goPlaces()>Lancer le crédit</button> -->
+    <a routerLink="forms" class="btn btn-primary">Lancer le crédit</a>
+  </div>
+</app-ui-modal>
 
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" (click)="exampleModalCenter.show()">Test Pop-Up</button> -->
-      <app-ui-modal #exampleModalCenter dialogClass="modal-dialog-centered">
-        <div class="app-modal-header">
-          <h5 class="modal-title">Oops!</h5>
-          <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="exampleModalCenter.hide()"><span aria-hidden="true">&times;</span></button>
+
+
+<app-ui-modal #ModalRemplirSimulation dialogClass="modal-dialog-centered" [containerClick]="false">
+  <div class="app-modal-header">
+    <h2 class="modal-title">Paramètres de la Simulation</h2>
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="ModalRemplirSimulation.hide()"><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="app-modal-body">
+    <div class="col">
+      
+        
+        <div class="row mt-3">
+              <!-- <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div> -->
+              <div class=" col-md-6 form-group">
+                <label class="labels" style="font-weight: 600;">Auto financement</label>
+                <input data-suffix="dt" value="3000" min="0" max="50000" type="number" class="form-control" id="autoF" autocomplete="off" th:field="*{temp}"/>
+              </div>
+              <div class=" col-md-6 form-group">
+                <label class="labels"  style="font-weight: 600;">nbre de mois</label>
+                <input data-suffix="mois" value="1" min="0" max="200" type="number" class="form-control" id="nbMois" autocomplete="off" th:field="*{temp}"/>
+              </div>
         </div>
-        <div class="app-modal-body">
-          <p>Vous avez déja une demande de crédit en cours de traitement.</p>
-        </div>
-        <div class="app-modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="exampleModalCenter.hide()">Close</button>
-          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-        </div>
-      </app-ui-modal>
+      
+    </div>
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="ModalRemplirSimulation.hide()">Close</button>
+    <button type="button" class="btn btn-primary" (click)="simulation()">Calculer</button>
+    <!-- <button type="button" class="btn btn-primary" (click)="modalSimulation.show()">Calculer</button> -->
+  </div>
+</app-ui-modal>
