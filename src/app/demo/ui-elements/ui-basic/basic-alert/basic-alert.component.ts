@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { clientService } from 'src/app/services/clientService';
 
 @Component({
   selector: 'app-basic-alert',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BasicAlertComponent implements OnInit {
 
-  constructor() { }
+  ClientInfo;
+
+  constructor(private ClientService : clientService) { }
 
   ngOnInit() {
+    this.ClientService.getClientById().subscribe((res)=> {
+      this.ClientInfo=res;
+      console.log(res);
+    });
   }
 
 }

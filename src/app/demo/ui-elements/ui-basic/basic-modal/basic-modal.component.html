@@ -21,7 +21,7 @@
     <hr>
 
     <div class="text-center">
-      <a (click)="ModalRemplirSimulation.show()" class="btn btn-primary">Simuler un crédit</a>
+      <a (click)="ModalParametresSimulation.show()" class="btn btn-primary">Simuler un crédit</a>
       <a routerLink="forms" class="btn btn-primary">Demander un crédit</a>
       <!-- <a (click)=goPlaces() class="btn btn-primary">Simuler un crédit</a> -->
     </div>
@@ -35,14 +35,20 @@
     <!-- <h2 class="modal-title">Modifier le profil</h2> -->
     <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="modalSimulation.hide()"><span aria-hidden="true">&times;</span></button>
   </div>
-  <div class="app-modal-body">
-    <h2 class="text-center">Calcul en cours...</h2>
-    <div class="d-flex justify-content-center">
-      
-      <div class="spinner-border text-primary" role="status">
-        <span class="sr-only">Loading...</span>
+  <div  class="app-modal-body text-center">
+   
+      <div *ngIf="loading==true">
+        <h2 class="text-center">Calcul en cours...</h2>
+        <div  class="d-flex justify-content-center">
+          <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
       </div>
-    </div>
+  
+    
+
+    <h1 *ngIf="loading==false">votre estimation est de {{simulationDt}} dt</h1>
     
   </div>
   <div class="app-modal-footer">
@@ -54,10 +60,10 @@
 
 
 
-<app-ui-modal #ModalRemplirSimulation dialogClass="modal-dialog-centered" [containerClick]="false">
+<app-ui-modal #ModalParametresSimulation dialogClass="modal-dialog-centered" [containerClick]="false">
   <div class="app-modal-header">
     <h2 class="modal-title">Paramètres de la Simulation</h2>
-    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="ModalRemplirSimulation.hide()"><span aria-hidden="true">&times;</span></button>
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="ModalParametresSimulation.hide()"><span aria-hidden="true">&times;</span></button>
   </div>
   <div class="app-modal-body">
     <div class="col">
@@ -78,8 +84,8 @@
     </div>
   </div>
   <div class="app-modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="ModalRemplirSimulation.hide()">Close</button>
-    <button type="button" class="btn btn-primary" (click)="simulation()">Calculer</button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="ModalParametresSimulation.hide()">Close</button>
+    <button type="button" class="btn btn-primary" (click)="simulation();ModalParametresSimulation.hide();modalSimulation.show()">Calculer</button>
     <!-- <button type="button" class="btn btn-primary" (click)="modalSimulation.show()">Calculer</button> -->
   </div>
 </app-ui-modal>

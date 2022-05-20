@@ -32,6 +32,9 @@ transmission: any;
 marque: Marque;
 idModel: number;
 token :string;
+simulationInfo;
+simulationDt;
+loading = true;
   constructor(private modeleservice : ModeleService, private route: ActivatedRoute, private route2: Router, private creditS : creditService) { }
 
   ngOnInit() {
@@ -49,18 +52,21 @@ token :string;
 
 simulation() {
   this.creditS.setCredit(
-    {"clientId":1,
-    "creditId":75,
+    {"clientId":2,
+    "creditId":76,
     "duree":200,
    "revenu":2800,
-  "age":35,
-   "email":"nidhal.rihane@ensi-uma.tn",   
+    "age":35,
+   "email":"assil.jaber@esprit.tn",   
    "montant":50000,
 }).subscribe((res)=> {
   console.log('setCredit')
   console.log(res);
 
-  this.creditS.getSimulation(75).subscribe((res)=> {
+  this.creditS.getSimulation(76).subscribe((res)=> {
+    this.simulationInfo=res ;
+    this.simulationDt=this.simulationInfo.simulation;
+    this.loading=false;
     console.log('getSimulation')
     console.log(res);
  });
