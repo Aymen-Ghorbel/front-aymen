@@ -29,15 +29,8 @@ export class BasicElementsComponent implements OnInit {
   }
 
    simulation() {
-     this.creditS.setCredit(
-       {"clientId":1,
-       "creditId":75,
-       "duree":200,
-      "revenu":2800,
-     "age":35,
-      "email":"nidhal.rihane@ensi-uma.tn",   
-      "montant":50000,
-   }).then((res)=> {
+     this.creditS.setCamunda(
+       ).then((res)=> {
      console.log('setCredit')
      console.log(res.body);
 

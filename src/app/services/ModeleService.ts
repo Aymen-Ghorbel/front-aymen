@@ -20,7 +20,7 @@ export class ModeleService {
     }
 
      //get models by name
-     getModelsByName(nom: any): Observable<any> {
+    getModelsByName(nom: any): Observable<any> {
         return this.http.get(`${this.baseUrl}/modelsByName/${nom}`);
     }
    

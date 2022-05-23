@@ -23,7 +23,7 @@ const routes: Routes = [
       },
       {
         path: 'dashboard',
-        loadChildren: () => import('./demo/dashboard/dashboard.module').then(module => module.DashboardModule),canActivate: [AuthGuard]
+        loadChildren: () => import('./demo/dashboard/dashboard.module').then(module => module.DashboardModule)/*,canActivate: [AuthGuard]*/
       },
       {
         path: 'layout',
