@@ -1,159 +1,391 @@
-<div class="row">
-  <div class="col-sm-12">
-    <app-card cardTitle="Formulaire Crédit" [options]="false">
-      <div div class="row justify-content-md-center">
-        <div class="col-md-6">
-          <form action="javascript:">
-           
-            <div class="form-group">
-              <label>ID</label>
-              <input type="text" class="form-control" placeholder="ID" >
-            </div>
-            <div class="form-group">
-              <label>Nom</label>
-              <input type="text" class="form-control" placeholder="Nom">
-            </div>
-            <div class="form-group">
-              <label>Prénom</label>
-              <input type="text" class="form-control" placeholder="Prénom">
-            </div>
-            <div class="form-group">
-              <label>Age</label>
-              <input type="text" class="form-control" placeholder="Email" >
-            </div>
-            <div class="form-group">
-              <label>Durée du Remboursement</label>
-              <input type="text" class="form-control" placeholder="" >
-            </div>
-            <div class="form-group">
-              <label>Type du Remboursement</label>
-              <input type="text" class="form-control" placeholder="Type du Remboursement" >
-            </div>
-            <div class="form-group">
-              <label>salaire Net</label>
-              <input type="text" class="form-control" placeholder="revenuClient" >
-            </div>
-            <div class="form-group">
-              <label>mensualite</label>
-              <input type="text" class="form-control" placeholder="mensualite" >
-            </div>
-            <div class="form-group">
-              <label>Email</label>
-              <input type="text" class="form-control" placeholder="email" >
-            </div>
-            
-            
-            
-           
-          </form>
-        </div>
-        <div class="col-md-6">
-          <form action="javascript:">
-            <div class="form-group">
-              <label>salaire Brut</label>
-              <input type="text" class="form-control" placeholder="salaire Brut">
-            </div>
-            <div class="form-group">
-              <label>num Tel</label>
-              <input type="text" class="form-control" placeholder="num Tel">
-            </div>
-            <div class="form-group">
-              <label>employeur</label>
-              <input type="text" class="form-control" placeholder="employeur">
-            </div>
-            <div class="form-group">
-              <label>employeur</label>
-              <input type="text" class="form-control" placeholder="employeur">
-            </div>
-            <div class="form-group">
-              <label>date Naissance</label>
-              <input type="text" class="form-control" placeholder="date Naissance">
-            </div>
-            <div class="form-group">
-              <label>Montant</label>
-              <input type="text" class="form-control" placeholder="Montant" >
-            </div>
-            <div class="form-group">
-              <label>Type</label>
-              <input type="text" class="form-control" placeholder="adress" >
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlSelect1" style="font-weight: bold;">Type du contrat</label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Type 1</option>
-                <option>Type 2</option>
-                <option>Type 3</option>
-                <option>Type 4</option>
-                <option>Type 5</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label for="exampleFormControlSelect1" style="font-weight: bold;">Secteur d'activité</label>
-              <select class="form-control" id="exampleFormControlSelect1">
-                <option>Les industries manufacturières</option>
-                <option>Services informatiques</option>
-                <option>Les communications</option>
-                <option>Transport</option>
-                <option>Education et enseignement</option>
-              </select>
-            </div>
-            <!-- <div class="text-right">
-              <button type="button" class="btn btn-primary" data-toggle="modal" (click)="simulation()">Simuler un Crédit</button> 
-            </div> -->
-            <div class="text-right">
-              <a routerLink="documents" class="btn btn-primary">Upload Documents Crédit</a>
-            </div>
+<div class="card" style="width: auto; ">
 
-           
-     
-      
-      
-            <app-ui-modal #exampleModalCenter dialogClass="modal-dialog-centered">
-        <div class="app-modal-header">
-          <h5 class="modal-title">Oops!</h5>
-          <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="exampleModalCenter.hide()"><span aria-hidden="true">&times;</span></button>
+  <div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+
+      <div class="col-md-5">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+          <h1 class="text-right">Confirmation du crédit</h1>
         </div>
-        <div class="app-modal-body">
-          <h4>Nos équipes travaillent actuellement dessus</h4>
-        </div>
-        <div class="app-modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="exampleModalCenter.hide()">Close</button>
-          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-        </div>
-      </app-ui-modal>
-             
-          </form>
-          <!-- <div class="col-md-12  text-right">
-            <button type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">Confirmer</button>
-            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                    </button>
-                  </div>
-                  <div class="modal-body">
-                    
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                  </div>
-                </div>
+        <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+          
+            <img class="card-img-top" src={{model.imageUrl}} alt="Card image cap" style="width: 70%; align-self: center;">
+            
+            <div style="align-self: center;">
+              <div class="row">
+                <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><a class="spec" >MARQUE:&emsp;</a>{{model.nom}}</li>
+                      <li class="list-group-item"><a class="spec" >PRIX:&emsp;</a>{{model.prix}} DT</li>
+                      <li class="list-group-item"><a class="spec" >ENERGIE:&emsp;</a>{{model.energie}}</li>
+                      <li class="list-group-item"><a class="spec" >BOITE:&emsp;</a>{{model.boite}}</li>  
+                </ul> 
+                <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><a class="spec" >PUISSANCE FISCALE:&emsp;</a>{{model.puissanceFiscale}} cv</li>
+                      <li class="list-group-item"><a class="spec" >NOMBRE DE CYLINDRES:&emsp;</a>{{model.nbreDeCylindres}}</li>
+                      <li class="list-group-item"><a class="spec" >NOMBRE DE PLACES:&emsp;</a>{{model.nbreDePlaces}}</li>
+                      <li class="list-group-item"><a class="spec" >NOMBRE DE RAPPORTS:&emsp;</a>    {{model.nbreDeRapports}}</li>
+                </ul> 
               </div>
             </div>
-          </div> -->
-
-          
           
         </div>
       </div>
       
-        
+      <div class="col-md-7 ">
+        <div class="container" style="padding-right: 10%; padding-left: 10%;">
+          
+          <div class="p-3 py-5">
+            
+            <div class="row">
+              <div class="col-sm-5">
+                <h6 class="mb-0">Nom</h6>
+              </div>
+              <div class="col-sm-5 text-secondary">
+                {{client.nom}}
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+              <div class="col-sm-5">
+                <h6 class="mb-0">Prénom</h6>
+              </div>
+              <div class="col-sm-5 text-secondary">
+                {{client.prenom}}
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+              <div class="col-sm-5">
+                <h6 class="mb-0">Date de naissance</h6>
+              </div>
+              <div class="col-sm-4 text-secondary">
+                {{client.dateNaissance}}
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+              <div class="col-sm-5">
+                <h6 class="mb-0">Email</h6>
+              </div>
+              <div class="col-sm-4 text-secondary">
+                {{client.email}}
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+              <div class="col-sm-5">
+                <h6 class="mb-0">Num Tel</h6>
+              </div>
+              <div class="col-sm-4 text-secondary">
+                {{client.numTel}} 
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+              <div class="col-sm-5">
+                <h6 class="mb-0">Auto financement</h6>
+              </div>
+              <div class="col-sm-5 text-secondary">
+                30 000 dt
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+              <div class="col-sm-5">
+                <h6 class="mb-0">Durée de remboursement</h6>
+              </div>
+              <div class="col-sm-5 text-secondary">
+                20 mois
+              </div>
+            </div>
+
+            <hr>
+
+            <div class="row">
+              <div class="col-sm-5">
+                <h6 class="mb-0">Montant crédité</h6>
+              </div>
+              <div class="col-sm-5 text-secondary">
+                100 000 dt
+              </div>
+            </div>
+
+
+            <div class="mt-5 text-center"><button class="btn btn-primary " type="button" (click)="acceptCredit()">Confirmer</button></div>
+          
+        </div>
+
+        </div>
+          
+      </div>
+
       
-      
-    </app-card>
+
+    </div>  
   </div>
+
 </div>
+
+<app-ui-modal #exampleModalCenter dialogClass="modal-dialog-centered" [containerClick]="false">
+  <div class="app-modal-header">
+    <h2 class="modal-title">Modifier le profil</h2>
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="exampleModalCenter.hide()"><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="app-modal-body">
+    <div class="col">
+      
+        <div class="row mt-2">
+              <div class="col-md-6"><label class="labels">Nom</label><input type="text" class="form-control" placeholder="nom" value="Assil"></div>
+              <div class="col-md-6"><label class="labels">Prénom</label><input type="text" class="form-control" value="Ben Foulen"></div>
+        </div>
+        <div class="row mt-3">
+              <div class="col-md-12"><label class="labels">Date de naissance</label><input type="text" class="form-control" placeholder="JJ/MM/AAAA" value="26/05/1995"></div>
+              <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Email" value="Assil@value.com"></div>
+              <div class="col-md-12 "><label class="labels">Num Tel</label><input type="text" class="form-control" placeholder="+216 xx xxx xxx" value="+216 10101010"></div>
+              <div class="col-md-12 form-select">
+                <label for="exampleFormControlSelect1" style="font-weight: bold;">Secteur d'activité</label>
+                <select class="mb-3 form-control" id="exampleFormControlSelect1">
+                  <option>Les industries manufacturières</option>
+                  <option>Services informatiques</option>
+                  <option>Les communications</option>
+                  <option>Transport</option>
+                  <option>Education et enseignement</option>
+                </select>
+              </div>
+              <div class="col-md-12"><label class="labels">Employeur</label><input type="text" class="form-control" placeholder="employeur" value="Value"></div>
+              
+              
+        </div>
+        <div class="row mt-3">
+              <!-- <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div> -->
+              <div class=" col-md-6 form-group">
+                <label class="labels">Salaire Brut</label>
+                <input data-suffix="°C" value="3000" min="0" max="50000" type="number" class="form-control" id="brut" autocomplete="off" th:field="*{temp}"/>
+              </div>
+              <div class=" col-md-6 form-group">
+                <label class="labels">Salaire Net</label>
+                <input data-suffix="°C" value="2000" min="0" max="50000" type="number" class="form-control" id="net" autocomplete="off" th:field="*{temp}"/>
+              </div>
+        </div>
+      
+    </div>
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="exampleModalCenter.hide()">Close</button>
+    <button type="button" class="btn btn-primary">Save changes</button>
+  </div>
+</app-ui-modal>
+
+
+<app-ui-modal #Floating dialogClass="modal-dialog-centered" [containerClick]="false">
+  <div class="app-modal-header">
+    <h2 class="modal-title">Modifier le profil</h2>
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="exampleModalCenter.hide()"><span aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="app-modal-body">
+    <div class="col">
+      
+        <div class="row mt-2">
+              <div class="col-md-6"><form class="form-floating">
+                <input type="email" class="form-control" id="floatingInputValue" placeholder="name@example.com" value="test@example.com">
+                <label for="floatingInputValue">Input with value</label>
+              </form>
+            </div>
+              <div class="col-md-6"><form class="form-floating">
+                <input type="email" class="form-control" id="floatingInputValue" placeholder="name@example.com" value="test@example.com">
+                <label for="floatingInputValue">Input with value</label>
+              </form>
+            </div>
+        </div>
+        <div class="row mt-3">
+              <div class="col-md-12"><form class="form-floating">
+                <input type="email" class="form-control" id="floatingInputValue" placeholder="name@example.com" value="test@example.com">
+                <label for="floatingInputValue">Input with value</label>
+              </form>
+            </div>
+              <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Email" value="Assil@value.com"></div>
+              <div class="col-md-12 "><label class="labels">Num Tel</label><input type="text" class="form-control" placeholder="+216 xx xxx xxx" value="+216 10101010"></div>
+              <div class="col-md-12 form-select">
+                <label for="exampleFormControlSelect1" style="font-weight: bold;">Secteur d'activité</label>
+                <select class="mb-3 form-control" id="exampleFormControlSelect1">
+                  <option>Les industries manufacturières</option>
+                  <option>Services informatiques</option>
+                  <option>Les communications</option>
+                  <option>Transport</option>
+                  <option>Education et enseignement</option>
+                </select>
+              </div>
+              <div class="col-md-12"><label class="labels">Employeur</label><input type="text" class="form-control" placeholder="employeur" value="Value"></div>
+              <!-- <div class="col-md-12"><label class="labels">Salaire Brut</label><input type="text" class="form-control" placeholder="votre salire brut" value="3000 dt"></div> -->
+              <div class=" col-md-12 form-group">
+                <label class="labels">Salire Brut</label>
+                <input data-suffix="°C" value="0" min="-50" max="50" type="number" class="form-control" id="temp" autocomplete="off" th:field="*{temp}"/>
+              </div>
+              <div class=" col-md-12 form-group">
+                <label class="labels">Salaire Net</label>
+                <input data-suffix="°C" value="0" min="-50" max="50" type="number" class="form-control" id="temp" autocomplete="off" th:field="*{temp}"/>
+              </div>
+              <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
+              <div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education" value=""></div>
+        </div>
+        <div class="row mt-3">
+              <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
+              <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
+        </div>
+      
+    </div>
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="exampleModalCenter.hide()">Close</button>
+    <button type="button" class="btn btn-primary">Save changes</button>
+  </div>
+</app-ui-modal>
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+<div calss="row">
+  <div class="col-md-7">
+    <div class="card" >
+    <div class="row">
+  <div class="col-md-7 ">
+    <div class="container" style="padding-right: 10%; padding-left: 10%;">
+      
+      <div class="p-3 py-5">
+        
+        <div class="row">
+          <div class="col-sm-5">
+            <h6 class="mb-0">Nom</h6>
+          </div>
+          <div class="col-sm-5 text-secondary">
+            Assil
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-sm-5">
+            <h6 class="mb-0">Prénom</h6>
+          </div>
+          <div class="col-sm-5 text-secondary">
+            Ben Foulen
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-sm-5">
+            <h6 class="mb-0">Date de naissance</h6>
+          </div>
+          <div class="col-sm-4 text-secondary">
+            26/05/1995
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-sm-5">
+            <h6 class="mb-0">Email</h6>
+          </div>
+          <div class="col-sm-4 text-secondary">
+            assil@value.com
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-sm-5">
+            <h6 class="mb-0">Num Tel</h6>
+          </div>
+          <div class="col-sm-4 text-secondary">
+            +216 10101010 
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-sm-5">
+            <h6 class="mb-0">Secteur d'activité</h6>
+          </div>
+          <div class="col-sm-5 text-secondary">
+            Services informatiques
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-sm-5">
+            <h6 class="mb-0">Employeur</h6>
+          </div>
+          <div class="col-sm-5 text-secondary">
+            Value
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-sm-5">
+            <h6 class="mb-0">Salaire Brut</h6>
+          </div>
+          <div class="col-sm-5 text-secondary">
+            3000 dt
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="row">
+          <div class="col-sm-5">
+            <h6 class="mb-0">Salaire Net</h6>
+          </div>
+          <div class="col-sm-5 text-secondary">
+            2000 dt
+          </div>
+        </div>
+
+    </div>
+
+    </div>
+      
+  </div>
+    </div>
+    </div>
+  </div>
+  
+  <div class="col-md-6">
+    
+  </div>
+  
+
+</div> -->
+
+
+
+

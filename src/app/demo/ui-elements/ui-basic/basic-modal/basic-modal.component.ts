@@ -45,67 +45,88 @@ export class BasicModalComponent implements OnInit {
   transmission: any;
   marque: Marque;
   idModel: number;
+  idBrand: number;
   token: string;
-  simulationInfo;
+  idCredit: number;
   simulationDt;
   loading = true;
-  constructor(private modeleservice: ModeleService, private route: ActivatedRoute, private route2: Router, private creditS: creditService) {}
+  autoFinancement: any;
+  dureeRemboursement: any;
+
+  constructor(private modeleservice: ModeleService, private route: ActivatedRoute, private route2: Router, private creditS: creditService) { }
 
   ngOnInit() {
-
     this.modeleservice.emptyCredit().subscribe((res) => {
       this.token = res;
       console.log(res);
     })
     this.idModel = this.route.snapshot.params['idModel'];
+    this.idBrand = this.route.snapshot.params['idBrand'];
     this.modeleservice.getModele(this.idModel).subscribe((res) => {
       this.model = res;
     });
-
-    //     const formData = new FormData();
-
-
-    // formData.append('PrixVoiture', this.model.prix);
-    // formData.append('AgeVoiture', this.model.age);
-    // formData.append('AutoFinancement', this.model.AutoFinancement);
-    // formData.append('PuissanceFiscale', this.model.puissanceFiscale);
-    // formData.append('DureeRemboursement', this.model.DureeRemboursement);
-    // formData.append('AutoFinancement', this.model.a);
-
   }
 
+   padTo2Digits(num: number) {
+    return num.toString().padStart(2, '0');
+  };
+  
+   formatDate(date: Date) {
+    return (
+      [
+        this.padTo2Digits(date.getDate()),
+        this.padTo2Digits(date.getMonth() + 1),
+        date.getFullYear(),
+      ].join('-') +
+      ' ' +
+      [
+        this.padTo2Digits(date.getHours()),
+        this.padTo2Digits(date.getMinutes()),
+        this.padTo2Digits(date.getSeconds()),
+      ].join(':')
+    );
+  };
+  
 
+  onInputAutoFinancement(event: Event) {
+    this.autoFinancement = (<HTMLInputElement>event.target).value;
+  };
+
+  onInputDureeRemboursement(event: Event) {
+    this.dureeRemboursement = (<HTMLInputElement>event.target).value;
+  };
 
   simulation() {
-    // Promise.all(([this.creditS.setCredit, this.creditS.setCamunda, this.creditS.getCredit])).then(console.log) !!
-      console.log('setCredit');
-    this.creditS.setCredit().subscribe((response: any) => {
-      console.log(response)
-    });
+    var formData: any = new FormData();
 
+    formData.append('PrixVoiture', this.model.prix);
+    formData.append('AgeVoiture', '0');
+    formData.append('AutoFinancement', this.autoFinancement);
+    formData.append('PuissanceFiscale', this.model.puissanceFiscale);
+    formData.append('DureeRemboursement', this.dureeRemboursement);
+    formData.append('Montant', this.model.prix - this.autoFinancement);
+    formData.append('status',"En attend");
+    formData.append('date',this.formatDate(new Date()));
 
-    this.creditS.setCamunda().subscribe((res) => {
-      console.log('setCamunda');
-      console.log(res);
-      console.log('get Credit');
-      this.creditS.getCredit();
-
-      //   this.creditS.getSimulation(132).subscribe((res)=> {
-      //     this.simulationInfo=res ;
-      //     this.simulationDt=this.simulationInfo.simulation;
-      //     this.loading=false;
-      //     console.log('getSimulation')
-      //     console.log(res);
-      //  });
-
-    });
-
-
+    this.creditS.setCredit(formData).subscribe(
+      () => { },
+      () => {
+        this.creditS.getCredit().subscribe(credits => {
+          const lastCredit = credits[credits.length - 1];
+          this.creditS.setCamunda(lastCredit.id,this.model.prix-this.autoFinancement).subscribe(() => {
+            console.log('montant',this.model.prix-this.autoFinancement);
+            this.creditS.getCredit().subscribe(credits => {
+              this.simulationDt = credits[credits.length - 1].simulation;
+              this.idCredit = credits[credits.length - 1].id;
+              this.loading = false;
+            });
+          });
+        });
+      });
   }
 
   goPlaces() {
-
-    this.route2.navigate(['/', 'forms', 'basic']);
+    // this.route2.navigate(['/', 'forms', 'basic']);
+    this.route2.navigate(['/','basic','cards','modelsByBrand',this.idBrand,'details',this.idModel,'credit',this.idCredit]);
   }
-
 }

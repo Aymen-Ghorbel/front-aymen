@@ -53,8 +53,8 @@
   </div>
   <div class="app-modal-footer">
     <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalSimulation.hide()">Ok</button>
-    <!-- <button type="button" class="btn btn-primary" (click)=goPlaces()>Lancer le crédit</button> -->
-    <a routerLink="forms" class="btn btn-primary">Lancer le crédit</a>
+    <button type="button" class="btn btn-primary" (click)="modalSimulation.hide();goPlaces()">Lancer le crédit</button>
+    <!-- <a routerLink="forms" class="btn btn-primary">Lancer le crédit</a> -->
   </div>
 </app-ui-modal>
 
@@ -73,11 +73,11 @@
               <!-- <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div> -->
               <div class=" col-md-6 form-group">
                 <label class="labels" style="font-weight: 600;">Auto financement</label>
-                <input data-suffix="dt" value="3000" min="0" max="50000" type="number" class="form-control" id="autoF" autocomplete="off" th:field="*{temp}"/>
+                <input data-suffix="dt" value="0" min="0" max="50000" type="number" class="form-control" id="autoF" autocomplete="off" th:field="*{temp}" (input)="onInputAutoFinancement($event)"/>
               </div>
               <div class=" col-md-6 form-group">
                 <label class="labels"  style="font-weight: 600;">nbre de mois</label>
-                <input data-suffix="mois" value="1" min="0" max="200" type="number" class="form-control" id="nbMois" autocomplete="off" th:field="*{temp}"/>
+                <input data-suffix="mois" value="0" min="0" max="200" type="number" class="form-control" id="nbMois" autocomplete="off" th:field="*{temp}" (input)="onInputDureeRemboursement($event)"/>
               </div>
         </div>
       

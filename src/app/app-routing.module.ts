@@ -56,7 +56,7 @@ const routes: Routes = [
       // { path: 'basic/models/:idBrand', component: BasicModelsComponent }
       // { path: 'basic/cards/basic/modele/ModelsByBrand/:idBrand', component: BasicModelsComponent,canActivate: [AuthGuard] },
       { path: 'DetailsByModel/:idModel', component: BasicDetailsComponent/*,canActivate: [AuthGuard]*/ },
-      { path: 'basic/cards/modelsByBrand/:idBrand/details/:idModel/forms', component: BasicElementsComponent/*,canActivate: [AuthGuard]*/ },
+      { path: 'basic/cards/modelsByBrand/:idBrand/details/:idModel/credit/:idCredit', component: BasicElementsComponent/*,canActivate: [AuthGuard]*/ },
       { path: 'basic/cards/modelsByBrand/:idBrand/details/:idModel', component: BasicModalComponent/*,canActivate: [AuthGuard]*/ },
       { path: 'basic/cards/modelsByBrand/:idBrand', component: BasicTypographyComponent},
       { path: 'profile', component: BasicAlertComponent },
