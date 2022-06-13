@@ -48,6 +48,14 @@ const NavigationItems = [
         icon: 'feather icon-server',
         url: '/basic/cards',
         classes: 'nav-item'
+      },
+      {
+        id: 'credit',
+        title: 'Mon crédit',
+        type: 'item',
+        icon: 'feather icon-server',
+        url: '/basic/progress',
+        classes: 'nav-item'
       }
       // {
       //   id: 'page-layouts',

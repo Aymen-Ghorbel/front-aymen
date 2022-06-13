@@ -1,50 +1,295 @@
 <div class="row">
   <div class="col-sm-12">
-    <app-card cardTitle="Progress" [options]="false">
-      <div class="mb-4"><ngb-progressbar [value]="0"></ngb-progressbar></div>
-      <div class="mb-4"><ngb-progressbar [value]="25"></ngb-progressbar></div>
-      <div class="mb-4"><ngb-progressbar [value]="50"></ngb-progressbar></div>
-      <div class="mb-4"><ngb-progressbar [value]="75"></ngb-progressbar></div>
-      <div class="mb-4"><ngb-progressbar [value]="100"></ngb-progressbar></div>
+    <app-card cardTitle="Avancement du crédit" [options]="false">
+      <!-- <div class="row ">
+        <div class="col-2 d-flex align-items-center">
+          <img class="card-img-top" src="assets\images\brands\audi-a4.jpg" alt="Card image cap" style="width: 100%;">
+        </div>
+        <div class="col-9 d-flex align-items-center">
+          <ngb-progressbar [showValue]="true" [value]="25" style="width: 100% ;"></ngb-progressbar>
+        </div>
+        <div class="col-1 d-flex align-items-center">
+          <img class="card-img-top" src="assets\images\profile\profile-pic.jpg" alt="Card image cap" style="width: 100%;">
+        </div>
+      </div> -->
+
+  
+
+      <div class="row justify-content-between">
+        <div class="col-4">Statut: {{credit.status}}</div>
+        <div class="col-2"><button class="btn btn-primary " type="button" (click)="ModalUploadDomiciliation.show()">Continuer</button></div>
+      </div>
+      
+
+      <hr>
+      <div *ngIf="percentage==0" class="row ">
+        <div class="col-2 ">
+          <div class="row">
+            <img class="card-img-top" src={{model.imageUrl}} alt="Card image cap" style="width: 100%;">
+          </div>
+          <div class="row d-flex justify-content-center">
+            <div class="label" style="font-size: 200%; font-family: 'Caveat', cursive;">0%</div>
+          </div>
+          
+        </div>
+        <div class="col-9 d-flex align-items-center">
+          <ngb-progressbar [showValue]="true" [value]="0" style="width: 100% ;"></ngb-progressbar>
+        </div>
+        <div class="col-1 d-flex align-items-center">
+          <img class="card-img-top" src="assets\images\profile\profile-pic.jpg" alt="Card image cap" style="width: 100%;">
+        </div>
+      </div>
+
+      <div *ngIf="percentage==25" class="row ">
+        <div class="col-2 d-flex align-items-center">
+          <ngb-progressbar [value]="100" [striped]="true" [animated]="stripAnimation" style="width: 100%"></ngb-progressbar>
+        </div>
+        <div class="col-2 ">
+          <div class="row">
+            <img class="card-img-top" src={{model.imageUrl}} alt="Card image cap" style="width: 100%;">
+          </div>
+          <div class="row d-flex justify-content-center">
+            <div class="label" style="font-size: 200%; font-family: 'Caveat', cursive;">25%</div>
+          </div>
+          
+        </div>
+        <div class="col-7 d-flex align-items-center">
+          <ngb-progressbar [showValue]="true" [value]="0" style="width: 100% ;"></ngb-progressbar>
+        </div>
+        <div class="col-1 d-flex align-items-center">
+          <img class="card-img-top" src="assets\images\profile\profile-pic.jpg" alt="Card image cap" style="width: 100%;">
+        </div>
+      </div>
+
+      <div *ngIf="percentage==50" class="row ">
+        <div class="col-4 d-flex align-items-center">
+          <ngb-progressbar [value]="100" [striped]="true" [animated]="stripAnimation" style="width: 100%"></ngb-progressbar>
+        </div>
+        <div class="col-2 ">
+          <div class="row">
+            <img class="card-img-top" src={{model.imageUrl}} alt="Card image cap" style="width: 100%;">
+          </div>
+          <div class="row d-flex justify-content-center">
+            <div class="label" style="font-size: 200%; font-family: 'Caveat', cursive;">50%</div>
+          </div>
+          
+        </div>
+        <div class="col-5 d-flex align-items-center">
+          <ngb-progressbar [showValue]="true" [value]="0" style="width: 100% ;"></ngb-progressbar>
+        </div>
+        <div class="col-1 d-flex align-items-center">
+          <img class="card-img-top" src="assets\images\profile\profile-pic.jpg" alt="Card image cap" style="width: 100%;">
+        </div>
+      </div>
+
+      <div *ngIf="percentage==75" class="row ">
+        <div class="col-6 d-flex align-items-center">
+          <ngb-progressbar [value]="100" [striped]="true" [animated]="stripAnimation" style="width: 100%"></ngb-progressbar>
+        </div>
+        <div class="col-2 ">
+          <div class="row">
+            <img class="card-img-top" src={{model.imageUrl}} alt="Card image cap" style="width: 100%;">
+          </div>
+          <div class="row d-flex justify-content-center">
+            <div class="label" style="font-size: 200%; font-family: 'Caveat', cursive;">75%</div>
+          </div>
+          
+        </div>
+        <div class="col-3 d-flex align-items-center">
+          <ngb-progressbar [showValue]="true" [value]="0" style="width: 100% ;"></ngb-progressbar>
+        </div>
+        <div class="col-1 d-flex align-items-center">
+          <img class="card-img-top" src="assets\images\profile\profile-pic.jpg" alt="Card image cap" style="width: 100%;">
+        </div>
+      </div>
+       
+      
+      
     </app-card>
   </div>
   <div class="col-sm-12">
-    <app-card cardTitle="Labels" [options]="false">
-      <div class="mb-4"><ngb-progressbar [showValue]="true" [value]="25"></ngb-progressbar></div>
-    </app-card>
+    <!-- <div class="card" style="width: auto; "> -->
+      <app-card cardTitle="Détails du crédit" [options]="false">
+      
+
+        <div class="container rounded bg-white mt-5 mb-5">
+          <div class="row">
+      
+            <div class="col-md-5">
+              
+              <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                
+                  <img class="card-img-top" src={{model.imageUrl}} alt="Card image cap" style="width: 70%; align-self: center;">
+                  
+                  <div style="align-self: center;">
+                    <div class="row">
+                      <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><a class="spec" >MARQUE:&emsp;</a>{{model.nom}}</li>
+                            <li class="list-group-item"><a class="spec" >PRIX:&emsp;</a>{{model.prix}} DT</li>
+                            <li class="list-group-item"><a class="spec" >ENERGIE:&emsp;</a>{{model.energie}}</li>
+                            <li class="list-group-item"><a class="spec" >BOITE:&emsp;</a>{{model.boite}}</li>  
+                      </ul> 
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a class="spec" >PUISSANCE FISCALE:&emsp;</a>{{model.puissanceFiscale}} cv</li>
+                        <li class="list-group-item"><a class="spec" >NOMBRE DE CYLINDRES:&emsp;</a>{{model.nbreDeCylindres}}</li>
+                        <li class="list-group-item"><a class="spec" >NOMBRE DE PLACES:&emsp;</a>{{model.nbreDePlaces}}</li>
+                        <li class="list-group-item"><a class="spec" >NOMBRE DE RAPPORTS:&emsp;</a>    {{model.nbreDeRapports}}</li>
+                      </ul> 
+                    </div>
+                  </div>
+                
+              </div>
+            </div>
+            
+            <div class="col-md-7 ">
+              <div class="container" style="padding-right: 10%; padding-left: 10%;">
+                
+                <div class="p-3 py-5">
+                  
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h6 class="mb-0">Nom</h6>
+                    </div>
+                    <div class="col-sm-5 text-secondary">
+                      {{client.nom}}
+                    </div>
+                  </div>
+      
+                  <hr>
+      
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h6 class="mb-0">Prénom</h6>
+                    </div>
+                    <div class="col-sm-5 text-secondary">
+                      {{client.prenom}}
+                    </div>
+                  </div>
+      
+                  <hr>
+      
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h6 class="mb-0">Date de naissance</h6>
+                    </div>
+                    <div class="col-sm-4 text-secondary">
+                      {{client.dateNaissance}}
+                    </div>
+                  </div>
+      
+                  <hr>
+      
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-4 text-secondary">
+                      {{client.email}}
+                    </div>
+                  </div>
+      
+                  <hr>
+      
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h6 class="mb-0">Num Tel</h6>
+                    </div>
+                    <div class="col-sm-4 text-secondary">
+                      {{client.numTel}} 
+                    </div>
+                  </div>
+      
+                  <hr>
+      
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h6 class="mb-0">Auto financement</h6>
+                    </div>
+                    <div class="col-sm-5 text-secondary">
+                      {{credit.autoFinancement}} dt
+                    </div>
+                  </div>
+      
+                  <hr>
+      
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h6 class="mb-0">Durée de remboursement</h6>
+                    </div>
+                    <div class="col-sm-5 text-secondary">
+                      {{credit.dureeRemboursement}} mois
+                    </div>
+                  </div>
+      
+                  <hr>
+      
+                  <div class="row">
+                    <div class="col-sm-5">
+                      <h6 class="mb-0">Montant crédité</h6>
+                    </div>
+                    <div class="col-sm-5 text-secondary">
+                      {{credit.montant}} dt
+                    </div>
+                  </div>
+      
+      
+                
+              </div>
+      
+              </div>
+                
+            </div>
+          </div>  
+        </div>
+      
+      
+      <!-- </div> -->
+    </app-card> 
   </div>
-  <div class="col-sm-12">
-    <app-card cardTitle="Height" [options]="false">
-      <div class="mb-4"><ngb-progressbar height="1px" [value]="25"></ngb-progressbar></div>
-      <div class="mb-4"><ngb-progressbar height="20px" [value]="25"></ngb-progressbar></div>
-    </app-card>
-  </div>
-  <div class="col-sm-12">
-    <app-card cardTitle="Backgrounds" [options]="false">
-      <div class="mb-4"><ngb-progressbar [value]="20">default</ngb-progressbar></div>
-      <div class="mb-4"><ngb-progressbar type="success" [value]="25">success</ngb-progressbar></div>
-      <div class="mb-4"><ngb-progressbar type="info" [value]="50">info</ngb-progressbar></div>
-      <div class="mb-4"><ngb-progressbar type="warning" [value]="75">warning</ngb-progressbar></div>
-      <div class="mb-4"><ngb-progressbar type="danger" [value]="100">danger</ngb-progressbar></div>
-    </app-card>
-  </div>
-  <div class="col-sm-12">
-    <app-card cardTitle="Striped" [options]="false">
-      <div class="mb-4"><ngb-progressbar [value]="20" [striped]="true"></ngb-progressbar></div>
-      <div class="mb-4"><ngb-progressbar type="success" [value]="25" [striped]="true"></ngb-progressbar></div>
-      <div class="mb-4"><ngb-progressbar type="info" [value]="50" [striped]="true"></ngb-progressbar></div>
-      <div class="mb-4"><ngb-progressbar type="warning" [value]="75" [striped]="true"></ngb-progressbar></div>
-      <div class="mb-4"><ngb-progressbar type="danger" [value]="100" [striped]="true"></ngb-progressbar></div>
-    </app-card>
-  </div>
-  <div class="col-sm-12">
-    <app-card cardTitle="Animated Stripes" [options]="false">
-      <div class="mb-4"><ngb-progressbar [value]="20" [striped]="true" [animated]="stripAnimation"></ngb-progressbar></div>
-      <div class="mb-4"><ngb-progressbar type="success" [value]="25" [striped]="true" [animated]="stripAnimation"></ngb-progressbar></div>
-      <div class="mb-4"><ngb-progressbar type="info" [value]="50" [striped]="true" [animated]="stripAnimation"></ngb-progressbar></div>
-      <div class="mb-4"><ngb-progressbar type="warning" [value]="75" [striped]="true" [animated]="stripAnimation"></ngb-progressbar></div>
-      <div class="mb-4"><ngb-progressbar type="danger" [value]="100" [striped]="true" [animated]="stripAnimation"></ngb-progressbar></div>
-      <button type="button" class="btn btn-secondary bd-toggle-animated-progress" data-toggle="button" aria-pressed="false" (click)="this.stripAnimation = !this.stripAnimation">Toggle Animation</button>
-    </app-card>
-  </div>
+ 
 </div>
+
+
+<app-ui-modal #ModalUploadDomiciliation  dialogClass="modal-dialog-centered" [containerClick]="false">
+  <div class="app-modal-header">
+    <h2 class="modal-title">Document domiciliation de salaire</h2>
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="ModalUploadDomiciliation.hide()"><span aria-hidden="true">&times;</span></button>
+  </div>
+
+  <div class="app-modal-body">
+    <input type="file" class="file-input"(change)="onFileSelected($event)" #fileUpload>
+
+    <div class="file-upload text-center">
+
+      {{fileName || "Choisir un fichier.."}}
+
+      <button type="button" class="btn btn-icon btn-secondary" (click)="fileUpload.click()">
+        <i class="feather icon-plus"></i>
+      </button>
+
+    </div>
+
+    <ngb-progressbar [showValue]="true" [value]="uploadProgress" *ngIf="uploadProgress" style="width: 100% ;"></ngb-progressbar>
+
+  </div>
+  
+  
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="ModalUploadDomiciliation.hide()">Annuler</button>
+    <button type="button" class="btn btn-primary" (click)="envoyer();ModalUploadDomiciliation.hide();ModalResponse.show()">Envoyer</button>
+    <!-- <button type="button" class="btn btn-primary" (click)="modalSimulation.show()">Calculer</button> -->
+  </div>
+</app-ui-modal>
+
+<app-ui-modal #ModalResponse  dialogClass="modal-dialog-centered" [containerClick]="false">
+  
+  <div class="app-modal-body">
+    <div>
+      Votre document a été envoyer avec succés
+    </div>
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="reloadCurrentPage();ModalResponse.hide()">OK</button>
+
+  </div>
+</app-ui-modal>

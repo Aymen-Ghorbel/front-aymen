@@ -635,7 +635,9 @@
     box-shadow: 0 2px 10px -1px rgba(69,90,100,0.3);
     transition: all 0.3s ease-in-out;
     width: $Menu-width;
-    height: calc(100% - #{$header-height});
+    // height: calc(100% - #{$header-height});
+    
+    height: 119.5%;
     margin-top: $header-height;
     border-radius: 0 6px 0 0;
     top: 0;

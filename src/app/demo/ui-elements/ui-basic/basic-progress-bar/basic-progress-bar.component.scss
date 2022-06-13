@@ -1,0 +1,100 @@
+label{
+    font-weight: bold;
+}
+.center {
+    margin: auto;
+    padding: 10px;
+  }
+.spec {
+    color: black;
+    font-weight: bold;
+    font-size: 100%;
+}
+.list-group-item{
+    font-size: 90%;
+}
+
+body {
+    background: rgb(99, 39, 120)
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.mb-0 {
+    font-weight: bold;
+    font-size: 15px
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
+
+.text-muted {
+    margin-left: 5px;
+    font-size: 20px;
+    color: #919aa3 !important
+}
+
+.col-md-12{
+    margin-top: 20px;
+}
+
+.btn-danger-soft {
+    
+    margin: 2px;
+    color: #dc3545;
+    background-color: rgba(220, 53, 69, 0.1);
+}
+
+.btn-success-soft {
+    margin: 2px;
+    color: #28a745;
+    background-color: rgba(40, 167, 69, 0.1);
+}
+
+.labels{
+    font-weight: bold;
+}
+
+.btn-primary{
+    margin: 2px;
+}
+
+.btn-secondary{
+    margin: 2px;
+}
+
+.file-input {
+    display: none;
+  }

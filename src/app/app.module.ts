@@ -35,7 +35,9 @@ import { HttpClientModule } from '@angular/common/http';
 // import { MatAutocompleteModule } from '@angular/material/Autocomplete';
 import { MatCheckboxModule } from '@angular/material/Checkbox';
 import { MatRadioModule } from '@angular/material/Radio';
+import { GlobalVariables } from './common/global-variables';
 // import { MatDatepickerModule } from '@angular/material/Datepicker';
+
 
 @NgModule({
   declarations: [
@@ -83,7 +85,8 @@ import { MatRadioModule } from '@angular/material/Radio';
     multi: true,
     deps: [KeycloakService],
   },
-    NavigationItem],
+    NavigationItem,
+    GlobalVariables],
   
   bootstrap: [AppComponent]
 })

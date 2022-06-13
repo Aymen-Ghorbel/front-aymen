@@ -96,7 +96,7 @@
                 <h6 class="mb-0">Auto financement</h6>
               </div>
               <div class="col-sm-5 text-secondary">
-                30 000 dt
+                {{credit.autoFinancement}} dt
               </div>
             </div>
 
@@ -107,7 +107,7 @@
                 <h6 class="mb-0">Durée de remboursement</h6>
               </div>
               <div class="col-sm-5 text-secondary">
-                20 mois
+                {{credit.dureeRemboursement}} mois
               </div>
             </div>
 
@@ -118,7 +118,7 @@
                 <h6 class="mb-0">Montant crédité</h6>
               </div>
               <div class="col-sm-5 text-secondary">
-                100 000 dt
+                {{credit.montant}} dt
               </div>
             </div>
 
@@ -130,262 +130,7 @@
         </div>
           
       </div>
-
-      
-
     </div>  
   </div>
 
 </div>
-
-<app-ui-modal #exampleModalCenter dialogClass="modal-dialog-centered" [containerClick]="false">
-  <div class="app-modal-header">
-    <h2 class="modal-title">Modifier le profil</h2>
-    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="exampleModalCenter.hide()"><span aria-hidden="true">&times;</span></button>
-  </div>
-  <div class="app-modal-body">
-    <div class="col">
-      
-        <div class="row mt-2">
-              <div class="col-md-6"><label class="labels">Nom</label><input type="text" class="form-control" placeholder="nom" value="Assil"></div>
-              <div class="col-md-6"><label class="labels">Prénom</label><input type="text" class="form-control" value="Ben Foulen"></div>
-        </div>
-        <div class="row mt-3">
-              <div class="col-md-12"><label class="labels">Date de naissance</label><input type="text" class="form-control" placeholder="JJ/MM/AAAA" value="26/05/1995"></div>
-              <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Email" value="Assil@value.com"></div>
-              <div class="col-md-12 "><label class="labels">Num Tel</label><input type="text" class="form-control" placeholder="+216 xx xxx xxx" value="+216 10101010"></div>
-              <div class="col-md-12 form-select">
-                <label for="exampleFormControlSelect1" style="font-weight: bold;">Secteur d'activité</label>
-                <select class="mb-3 form-control" id="exampleFormControlSelect1">
-                  <option>Les industries manufacturières</option>
-                  <option>Services informatiques</option>
-                  <option>Les communications</option>
-                  <option>Transport</option>
-                  <option>Education et enseignement</option>
-                </select>
-              </div>
-              <div class="col-md-12"><label class="labels">Employeur</label><input type="text" class="form-control" placeholder="employeur" value="Value"></div>
-              
-              
-        </div>
-        <div class="row mt-3">
-              <!-- <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div> -->
-              <div class=" col-md-6 form-group">
-                <label class="labels">Salaire Brut</label>
-                <input data-suffix="°C" value="3000" min="0" max="50000" type="number" class="form-control" id="brut" autocomplete="off" th:field="*{temp}"/>
-              </div>
-              <div class=" col-md-6 form-group">
-                <label class="labels">Salaire Net</label>
-                <input data-suffix="°C" value="2000" min="0" max="50000" type="number" class="form-control" id="net" autocomplete="off" th:field="*{temp}"/>
-              </div>
-        </div>
-      
-    </div>
-  </div>
-  <div class="app-modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="exampleModalCenter.hide()">Close</button>
-    <button type="button" class="btn btn-primary">Save changes</button>
-  </div>
-</app-ui-modal>
-
-
-<app-ui-modal #Floating dialogClass="modal-dialog-centered" [containerClick]="false">
-  <div class="app-modal-header">
-    <h2 class="modal-title">Modifier le profil</h2>
-    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="exampleModalCenter.hide()"><span aria-hidden="true">&times;</span></button>
-  </div>
-  <div class="app-modal-body">
-    <div class="col">
-      
-        <div class="row mt-2">
-              <div class="col-md-6"><form class="form-floating">
-                <input type="email" class="form-control" id="floatingInputValue" placeholder="name@example.com" value="test@example.com">
-                <label for="floatingInputValue">Input with value</label>
-              </form>
-            </div>
-              <div class="col-md-6"><form class="form-floating">
-                <input type="email" class="form-control" id="floatingInputValue" placeholder="name@example.com" value="test@example.com">
-                <label for="floatingInputValue">Input with value</label>
-              </form>
-            </div>
-        </div>
-        <div class="row mt-3">
-              <div class="col-md-12"><form class="form-floating">
-                <input type="email" class="form-control" id="floatingInputValue" placeholder="name@example.com" value="test@example.com">
-                <label for="floatingInputValue">Input with value</label>
-              </form>
-            </div>
-              <div class="col-md-12"><label class="labels">Email</label><input type="text" class="form-control" placeholder="Email" value="Assil@value.com"></div>
-              <div class="col-md-12 "><label class="labels">Num Tel</label><input type="text" class="form-control" placeholder="+216 xx xxx xxx" value="+216 10101010"></div>
-              <div class="col-md-12 form-select">
-                <label for="exampleFormControlSelect1" style="font-weight: bold;">Secteur d'activité</label>
-                <select class="mb-3 form-control" id="exampleFormControlSelect1">
-                  <option>Les industries manufacturières</option>
-                  <option>Services informatiques</option>
-                  <option>Les communications</option>
-                  <option>Transport</option>
-                  <option>Education et enseignement</option>
-                </select>
-              </div>
-              <div class="col-md-12"><label class="labels">Employeur</label><input type="text" class="form-control" placeholder="employeur" value="Value"></div>
-              <!-- <div class="col-md-12"><label class="labels">Salaire Brut</label><input type="text" class="form-control" placeholder="votre salire brut" value="3000 dt"></div> -->
-              <div class=" col-md-12 form-group">
-                <label class="labels">Salire Brut</label>
-                <input data-suffix="°C" value="0" min="-50" max="50" type="number" class="form-control" id="temp" autocomplete="off" th:field="*{temp}"/>
-              </div>
-              <div class=" col-md-12 form-group">
-                <label class="labels">Salaire Net</label>
-                <input data-suffix="°C" value="0" min="-50" max="50" type="number" class="form-control" id="temp" autocomplete="off" th:field="*{temp}"/>
-              </div>
-              <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value=""></div>
-              <div class="col-md-12"><label class="labels">Education</label><input type="text" class="form-control" placeholder="education" value=""></div>
-        </div>
-        <div class="row mt-3">
-              <div class="col-md-6"><label class="labels">Country</label><input type="text" class="form-control" placeholder="country" value=""></div>
-              <div class="col-md-6"><label class="labels">State/Region</label><input type="text" class="form-control" value="" placeholder="state"></div>
-        </div>
-      
-    </div>
-  </div>
-  <div class="app-modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="exampleModalCenter.hide()">Close</button>
-    <button type="button" class="btn btn-primary">Save changes</button>
-  </div>
-</app-ui-modal>
-
-
-
-
-
-
-
-
-
-
-
-<!-- 
-<div calss="row">
-  <div class="col-md-7">
-    <div class="card" >
-    <div class="row">
-  <div class="col-md-7 ">
-    <div class="container" style="padding-right: 10%; padding-left: 10%;">
-      
-      <div class="p-3 py-5">
-        
-        <div class="row">
-          <div class="col-sm-5">
-            <h6 class="mb-0">Nom</h6>
-          </div>
-          <div class="col-sm-5 text-secondary">
-            Assil
-          </div>
-        </div>
-
-        <hr>
-
-        <div class="row">
-          <div class="col-sm-5">
-            <h6 class="mb-0">Prénom</h6>
-          </div>
-          <div class="col-sm-5 text-secondary">
-            Ben Foulen
-          </div>
-        </div>
-
-        <hr>
-
-        <div class="row">
-          <div class="col-sm-5">
-            <h6 class="mb-0">Date de naissance</h6>
-          </div>
-          <div class="col-sm-4 text-secondary">
-            26/05/1995
-          </div>
-        </div>
-
-        <hr>
-
-        <div class="row">
-          <div class="col-sm-5">
-            <h6 class="mb-0">Email</h6>
-          </div>
-          <div class="col-sm-4 text-secondary">
-            assil@value.com
-          </div>
-        </div>
-
-        <hr>
-
-        <div class="row">
-          <div class="col-sm-5">
-            <h6 class="mb-0">Num Tel</h6>
-          </div>
-          <div class="col-sm-4 text-secondary">
-            +216 10101010 
-          </div>
-        </div>
-
-        <hr>
-
-        <div class="row">
-          <div class="col-sm-5">
-            <h6 class="mb-0">Secteur d'activité</h6>
-          </div>
-          <div class="col-sm-5 text-secondary">
-            Services informatiques
-          </div>
-        </div>
-
-        <hr>
-
-        <div class="row">
-          <div class="col-sm-5">
-            <h6 class="mb-0">Employeur</h6>
-          </div>
-          <div class="col-sm-5 text-secondary">
-            Value
-          </div>
-        </div>
-
-        <hr>
-
-        <div class="row">
-          <div class="col-sm-5">
-            <h6 class="mb-0">Salaire Brut</h6>
-          </div>
-          <div class="col-sm-5 text-secondary">
-            3000 dt
-          </div>
-        </div>
-
-        <hr>
-
-        <div class="row">
-          <div class="col-sm-5">
-            <h6 class="mb-0">Salaire Net</h6>
-          </div>
-          <div class="col-sm-5 text-secondary">
-            2000 dt
-          </div>
-        </div>
-
-    </div>
-
-    </div>
-      
-  </div>
-    </div>
-    </div>
-  </div>
-  
-  <div class="col-md-6">
-    
-  </div>
-  
-
-</div> -->
-
-
-
-

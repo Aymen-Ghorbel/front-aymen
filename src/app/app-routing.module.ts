@@ -10,6 +10,8 @@ import { BasicModalComponent } from './demo/ui-elements/ui-basic/basic-modal/bas
 import { BasicTypographyComponent } from './demo/ui-elements/ui-basic/basic-typography/basic-typography.component';
 import { BasicAlertComponent } from './demo/ui-elements/ui-basic/basic-alert/basic-alert.component';
 import { BasicGridComponent } from './demo/ui-elements/ui-basic/basic-grid/basic-grid.component';
+import { BasicCarouselComponent } from './demo/ui-elements/ui-basic/basic-carousel/basic-carousel.component';
+import { BasicBadgeComponent } from './demo/ui-elements/ui-basic/basic-badge/basic-badge.component';
 
 const routes: Routes = [
   {
@@ -57,6 +59,8 @@ const routes: Routes = [
       // { path: 'basic/cards/basic/modele/ModelsByBrand/:idBrand', component: BasicModelsComponent,canActivate: [AuthGuard] },
       { path: 'DetailsByModel/:idModel', component: BasicDetailsComponent/*,canActivate: [AuthGuard]*/ },
       { path: 'basic/cards/modelsByBrand/:idBrand/details/:idModel/credit/:idCredit', component: BasicElementsComponent/*,canActivate: [AuthGuard]*/ },
+      { path: 'basic/cards/modelsByBrand/:idBrand/details/:idModel/credit/:idCredit/upload', component: BasicCarouselComponent/*,canActivate: [AuthGuard]*/ },
+      { path: 'basic/cards/modelsByBrand/:idBrand/details/:idModel/credit/:idCredit/upload/docs', component: BasicBadgeComponent/*,canActivate: [AuthGuard]*/ },
       { path: 'basic/cards/modelsByBrand/:idBrand/details/:idModel', component: BasicModalComponent/*,canActivate: [AuthGuard]*/ },
       { path: 'basic/cards/modelsByBrand/:idBrand', component: BasicTypographyComponent},
       { path: 'profile', component: BasicAlertComponent },

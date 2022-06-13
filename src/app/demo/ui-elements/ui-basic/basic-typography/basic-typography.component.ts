@@ -12,7 +12,7 @@ import { ModeleService } from 'src/app/services/ModeleService';
 })
 export class BasicTypographyComponent implements OnInit {
 
-  modeleList:any;
+modeleList:any;
 brand:any
 modele:Modele=new Modele();
 nom:string;
