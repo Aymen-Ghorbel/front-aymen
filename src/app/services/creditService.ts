@@ -209,4 +209,19 @@ export class creditService {
     return this.http.post(`${this.baseUrlavancementWorkflow}/${this.type}/${idCredit}`,body,options);
   }
 
+  //Upload docs
+  DocsUpload(fd: FormData){
+  
+    let url="http://20.67.133.33:8080/uploadDoc";
+
+    return this.http.post(url,fd)
+  }
+
+  TimbreFiscaleUpload(fd: FormData){
+  
+    let url="http://20.67.133.33:8080/uploadtimbre_fiscale";
+
+    return this.http.put(url,fd);
+  }
+
 }

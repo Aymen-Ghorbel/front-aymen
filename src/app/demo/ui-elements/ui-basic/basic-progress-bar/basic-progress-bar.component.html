@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-sm-12">
-    <app-card cardTitle="Avancement du crédit" [options]="false">
+    <app-card cardTitle="Avancement du crédit" [options]="false" >
       <!-- <div class="row ">
         <div class="col-2 d-flex align-items-center">
           <img class="card-img-top" src="assets\images\brands\audi-a4.jpg" alt="Card image cap" style="width: 100%;">
@@ -15,9 +15,11 @@
 
   
 
-      <div class="row justify-content-between">
-        <div class="col-4">Statut: {{credit.status}}</div>
-        <div class="col-2"><button class="btn btn-primary " type="button" (click)="ModalUploadDomiciliation.show()">Continuer</button></div>
+      <div class="row ">
+        <div class="col-2 " style="font-size:200%; font-weight: bold; font-family: 'Montserrat', sans-serif; margin-top: 1%;">Statut: </div>
+        <div class="col-8 " style="font-size:200%; font-family: 'Montserrat', sans-serif; margin-top: 1%; text-align: left;">{{correctStatus()}}</div>
+        <div *ngIf="show" class="col-2"><button class="btn btn-outline-primary" ngbTooltip="btn-outline-primary" type="button" (click)="ModalUploadDomiciliation.show()">Continuer</button></div>
+        <div  *ngIf="!show" class="col-2"><button class="btn btn-outline-primary" ngbTooltip="btn-outline-primary" type="button" (click)="ModalUploadDocuments.show()">Docs</button></div>
       </div>
       
 
@@ -28,7 +30,7 @@
             <img class="card-img-top" src={{model.imageUrl}} alt="Card image cap" style="width: 100%;">
           </div>
           <div class="row d-flex justify-content-center">
-            <div class="label" style="font-size: 200%; font-family: 'Caveat', cursive;">0%</div>
+            <div class="label" style="font-size: 200%; font-family: 'Montserrat', sans-serif;">0%</div>
           </div>
           
         </div>
@@ -49,7 +51,7 @@
             <img class="card-img-top" src={{model.imageUrl}} alt="Card image cap" style="width: 100%;">
           </div>
           <div class="row d-flex justify-content-center">
-            <div class="label" style="font-size: 200%; font-family: 'Caveat', cursive;">25%</div>
+            <div class="label" style="font-size: 200%; font-weight: bolder; font-family: 'Montserrat', sans-serif; margin-top: 5%;">25%</div>
           </div>
           
         </div>
@@ -121,7 +123,7 @@
                 
                   <img class="card-img-top" src={{model.imageUrl}} alt="Card image cap" style="width: 70%; align-self: center;">
                   
-                  <div style="align-self: center;">
+                  <div >
                     <div class="row">
                       <ul class="list-group list-group-flush">
                             <li class="list-group-item"><a class="spec" >MARQUE:&emsp;</a>{{model.nom}}</li>
@@ -261,12 +263,29 @@
 
     <div class="file-upload text-center">
 
-      {{fileName || "Choisir un fichier.."}}
+      <div class="row justify-content-center">
 
-      <button type="button" class="btn btn-icon btn-secondary" (click)="fileUpload.click()">
-        <i class="feather icon-plus"></i>
-      </button>
+        <div class="col-6 d-flex justify-content-center" style="margin-top: 2% ; font-size: 150%; font-family: 'Montserrat', sans-serif; text-align: left; text-align: left;">
+          {{fileName || "Choisir un fichier..."}}
+        </div>
 
+
+        <div class="col-2">
+          <button type="button" class="btn btn-icon btn-outline-primary" (click)="fileUpload.click()">
+            <i class="feather icon-plus"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <hr>
+
+    <div *ngIf="fileName!='' && !uploadProgress && uploadDomiciliationLoading" class="d-flex justify-content-center">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
     </div>
 
     <ngb-progressbar [showValue]="true" [value]="uploadProgress" *ngIf="uploadProgress" style="width: 100% ;"></ngb-progressbar>
@@ -275,17 +294,199 @@
   
   
   <div class="app-modal-footer">
-    <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="ModalUploadDomiciliation.hide()">Annuler</button>
-    <button type="button" class="btn btn-primary" (click)="envoyer();ModalUploadDomiciliation.hide();ModalResponse.show()">Envoyer</button>
-    <!-- <button type="button" class="btn btn-primary" (click)="modalSimulation.show()">Calculer</button> -->
+    <button type="button" class="btn btn-outline-secondary" ngbTooltip="btn-outline-secondary"   data-dismiss="modal" (click)="ModalUploadDomiciliation.hide()">Annuler</button>
+    <button type="button" class="btn btn-outline-primary" ngbTooltip="btn-outline-primary" style="margin: 2px" [disabled]="disableSendDomiciliation" (click)="envoyer();ModalUploadDomiciliation.hide();ModalResponse.show()">Envoyer</button>
+    <!-- <button type="button" class="btn btn-primary" (click)="modalSimulation.show()">Calculer</button>  -->
+  </div>
+</app-ui-modal>
+
+<app-ui-modal #ModalUploadDocuments  dialogClass="modal-dialog-centered" [containerClick]="false">
+  <div class="app-modal-header">
+    <h2 class="modal-title" style="font-weight: bold; font-family: 'Montserrat', sans-serif;">Veuiller joindre les documents suivants:</h2>
+    <button type="button" class="close basic-close" data-dismiss="modal" aria-label="Close" (click)="ModalUploadDocuments.hide()"><span aria-hidden="true">&times;</span></button>
+  </div>
+
+  <div *ngIf="uploadResponseStatus==0" class="app-modal-body">
+    
+    <input type="file" class="file-input"(change)="onFileSelected1($event)" #fileUpload1>
+
+    <div class="file-upload text-center">
+
+      <div class="row justify-content-center">
+
+        <div class="col-7 " style="margin-top: 2% ; font-size: 150%; font-family: 'Montserrat', sans-serif; text-align: left; text-align: left;">
+          {{fileName1 || "Fiche de paie 1..."}}
+        </div>
+
+        <div class="col-2">
+          <button type="button" class="btn btn-icon btn-outline-primary" (click)="fileUpload1.click()">
+            <i class="feather icon-plus"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <hr>
+
+    <input type="file" class="file-input"(change)="onFileSelected2($event)" #fileUpload2>
+
+    <div class="file-upload text-center">
+
+      <div class="row justify-content-center">
+
+        <div class="col-7 " style="margin-top: 2% ; font-size: 150%; font-family: 'Montserrat', sans-serif; text-align: left;">
+          {{fileName2 || "Fiche de paie 2..."}}
+        </div>
+
+        <div class="col-2">
+          <button type="button" class="btn btn-icon btn-outline-primary" (click)="fileUpload2.click()">
+            <i class="feather icon-plus"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <hr>
+
+    <input type="file" class="file-input"(change)="onFileSelected3($event)" #fileUpload3>
+
+    <div class="file-upload text-center">
+
+      <div class="row justify-content-center">
+
+        <div class="col-7" style="margin-top: 2% ; font-size: 150%; font-family: 'Montserrat', sans-serif; text-align: left;">
+          {{fileName3 || "Fiche de paie 3..."}}
+        </div>
+
+        <div class="col-2">
+          <button type="button" class="btn btn-icon btn-outline-primary" (click)="fileUpload3.click()">
+            <i class="feather icon-plus"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <hr>
+
+    <input type="file" class="file-input"(change)="onFileSelected4($event)" #fileUpload4>
+
+    <div class="file-upload text-center">
+
+      <div class="row justify-content-center">
+
+        <div class="col-7" style="margin-top: 2% ; font-size: 150%; font-family: 'Montserrat', sans-serif; text-align: left;">
+          {{fileName4 || "Attestation de travail..."}}
+        </div>
+
+        <div class="col-2">
+          <button type="button" class="btn btn-icon btn-outline-primary" (click)="fileUpload4.click()">
+            <i class="feather icon-plus"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <hr>
+
+    <input type="file" class="file-input"(change)="onFileSelected5($event)" #fileUpload5>
+
+    <div class="file-upload text-center">
+
+      <div class="row justify-content-center">
+
+        <div class="col-7" style="margin-top: 2% ; font-size: 150%; font-family: 'Montserrat', sans-serif; text-align: left;">
+          {{fileName5 || "Attestation de salaire..."}}
+        </div>
+        
+        <div class="col-2">
+          <button type="button" class="btn btn-icon btn-outline-primary" (click)="fileUpload5.click()">
+            <i class="feather icon-plus"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <hr>
+
+    <input type="file" class="file-input"(change)="onFileSelected6($event)" #fileUpload6>
+
+    <div class="file-upload text-center">
+
+      <div class="row justify-content-center">
+
+        <div class="col-7" style="margin-top: 2% ; font-size: 150%; font-family: 'Montserrat', sans-serif; text-align: left;">
+          {{fileName6 || "Timbre fiscale..."}}
+        </div>
+
+        <div class="col-2">
+          <button type="button" class="btn btn-icon btn-outline-primary" (click)="fileUpload6.click()">
+            <i class="feather icon-plus"></i>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <hr>
+
+    <div *ngIf="uploadLoading" class="d-flex justify-content-center">
+      <div class="spinner-border text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    
+  </div>
+
+  <div *ngIf="uploadResponseStatus==200" class="app-modal-body d-flex justify-content-center" style="font-size:120%; font-family: 'Montserrat', sans-serif; margin-top: 1%; text-align: left;">
+    <div class="col">
+      <div class="div d-flex justify-content-center">
+        Vos documents ont été envoyer avec succés!
+      </div>
+      <div class="div d-flex justify-content-center" style="margin-top:4%">
+        <span class="material-symbols-outlined">
+          check_circle
+        </span>
+      </div>
+    </div>
+    
+    
+    
+  </div>
+  
+  
+  <div class="app-modal-footer">
+    <button *ngIf="uploadResponseStatus==0" type="button" class="btn btn-outline-secondary" ngbTooltip="btn-outline-secondary"   data-dismiss="modal" (click)="ModalUploadDocuments.hide()">Annuler</button>
+    <button *ngIf="uploadResponseStatus==0" type="button" class="btn btn-outline-primary" ngbTooltip="btn-outline-primary" style="margin: 2px" (click)="onDocsUpload()">Envoyer</button>
+
+    <button *ngIf="uploadResponseStatus==200" type="button" class="btn btn-secondary" data-dismiss="modal" (click)="reloadCurrentPage();ModalUploadDocuments.hide()" style="margin: 10px;">Ok</button>
+
   </div>
 </app-ui-modal>
 
 <app-ui-modal #ModalResponse  dialogClass="modal-dialog-centered" [containerClick]="false">
   
   <div class="app-modal-body">
-    <div>
-      Votre document a été envoyer avec succés
+
+    <div class="col">
+      <div class="div d-flex justify-content-center" style="font-size:120%; font-family: 'Montserrat', sans-serif; margin-top: 1%; text-align: left;">
+        Votre document a été envoyer avec succés!
+      </div>
+      <div class="div d-flex justify-content-center" style="margin-top:4%">
+        <span class="material-symbols-outlined">
+          check_circle
+        </span>
+      </div>
     </div>
   </div>
   <div class="app-modal-footer">
