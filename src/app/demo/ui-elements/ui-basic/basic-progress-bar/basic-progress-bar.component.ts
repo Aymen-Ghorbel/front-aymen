@@ -41,6 +41,7 @@ export class BasicProgressBarComponent implements OnInit {
   fileName4 = '';
   fileName5 = '';
   fileName6 = '';
+  contractFileName = '';
   uploadSub: any;
   uploadProgress: number;
   status: any;
@@ -50,6 +51,7 @@ export class BasicProgressBarComponent implements OnInit {
   uploadLoading = false;
   test = false;
   disableSendDomiciliation = true;
+  contractReceived = true;
 
   selectedFile1: any;
   selectedFile2: any;
@@ -57,6 +59,7 @@ export class BasicProgressBarComponent implements OnInit {
   selectedFile4: any;
   selectedFile5: any;
   selectedFile6: any;
+  selectedContractFile: any;
 
   constructor(private creditS: creditService, private modelS: ModeleService, private clientS: clientService, private route1: Router, private http: HttpClient) {
     this.stripAnimation = true;
@@ -266,7 +269,29 @@ export class BasicProgressBarComponent implements OnInit {
       });
     
   }
+  //docs upload end
 
+  //contract upload start
+  onContractSelected(event) {
+    this.contractFileName = event.target.files[0];
+    const file:File = event.target.files[0];
+    if (file) {
+      this.contractFileName = file.name;
+    }
+  }
+
+  //unfinished contract upload method
+  onContractUpload(){
+    let fdDocs = new FormData();
+
+    this.uploadLoading = true;
+
+    fdDocs.append('id',this.idCredit);
+    fdDocs.append('Contrat',this.selectedContractFile);
+
+    //service subscription
+    
+  }
 
 
  
@@ -319,7 +344,7 @@ export class BasicProgressBarComponent implements OnInit {
         return "En attente de document domiciliation de salaire";
       }
       case "En cours de traitement": {
-        return "En cours de traitement"; 
+        return "En cours de traitement..."; 
       }
     };
   }
