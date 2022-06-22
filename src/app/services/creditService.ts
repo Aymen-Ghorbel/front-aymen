@@ -194,6 +194,15 @@ export class creditService {
     return this.http.get(`${this.baseUrlGenerateList}/${idClient}/${this.type}`);
   }
 
+  getIdFromGeneratedList(list: any): any{
+    let listString = String(list);
+    let one = listString.split(",");
+    let two = one[0].substring(16);
+    let three = +two;
+    console.log("getIdFromGeneratedList: ",three);
+    return three;
+  }
+
   avancementWorkflow(idCredit: number): any{
 
     let headers = new HttpHeaders({

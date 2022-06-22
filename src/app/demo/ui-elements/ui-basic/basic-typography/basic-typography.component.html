@@ -14,7 +14,7 @@
 
 
 <div class="card" style="width: auto;">
-  <a style="padding: 5%; font-size: 500%; font-family: Georgia, serif;">{{brand.nom}}</a>
+  <a style="padding: 5%; font-size: 500%; font-weight: bold; font-family: 'Montserrat', sans-serif;">{{brand.nom}}</a>
   <div class="container" >
     <div class="row">
       <div class="d-flex flex-wrap" style="width: 954px; margin: auto;">
@@ -23,10 +23,12 @@
             <div class="card" style="width: 18rem;">
               <img class="card-img-top" src={{el.imageUrl}} alt="Card image cap"   style="padding: 10px;">
               <div class="card-body">
-                <h2 class="card-title">{{el.nom}}</h2>
-                <p class="card-text">à partir de {{el.prix}} DT</p>
+                <h2 class="card-title" style="font-weight: bold; font-family: 'Montserrat', sans-serif;">{{el.nom}}</h2>
+                <p class="card-text" style="font-size: larger; font-family: 'Montserrat', sans-serif;">à partir de {{el.prix}} DT</p>
                 <hr>
-                <a routerLink="details/{{el.id}}" class="btn btn-primary">Details</a>
+                <div class="d-flex justify-content-center">
+                  <a routerLink="details/{{el.id}}" class="btn btn-outline-primary" style="font-weight: bold; font-family: 'Montserrat', sans-serif;">Details</a>
+                </div>
                 <!-- <a routerLink="/DetailsByModel/{{el.id}}" class="btn btn-primary">Details</a> -->
               </div>
             </div>

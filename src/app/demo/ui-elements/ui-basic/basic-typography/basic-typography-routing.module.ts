@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule} from '@angular/router';
 import {BasicTypographyComponent} from './basic-typography.component';
 
 const routes: Routes = [
@@ -13,4 +13,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class BasicTypographyRoutingModule { }
+export class BasicTypographyRoutingModule {  
+ }

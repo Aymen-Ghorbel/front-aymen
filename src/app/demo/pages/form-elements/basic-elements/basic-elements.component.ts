@@ -80,14 +80,7 @@ export class BasicElementsComponent implements OnInit {
       ()=>{},
       (res)=>{
       console.log('accept simulation',res);
-      
-      this.creditS.generateList(this.idCredit).subscribe(
-      ()=>{},
-      (res)=>{
-        console.log('list generation', res.error.text);
-        this.route2.navigate(['/','basic','progress']);
-      }
-      )
+      this.route2.navigate(['/','basic','progress']);
        });
 
     

@@ -10,7 +10,7 @@ export class PowerCardChart3 {
     dataLabels: {
       enabled: false
     },
-    colors: ['#5499C7'],
+    colors: ['#254676'],
     stroke: {
       curve: 'smooth',
       width: 3,

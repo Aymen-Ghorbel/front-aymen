@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Marque } from 'src/app/models/marque';
 import { Modele } from 'src/app/models/modele';
 import { MarqueService } from 'src/app/services/MarqueService';
@@ -31,7 +31,7 @@ nbreDeRapports: number;
 transmission: any;
 marque: Marque;
 idBrand: number;
-  constructor(private modeleservice : ModeleService,private marqueService : MarqueService, private route: ActivatedRoute) { }
+  constructor(private modeleservice : ModeleService,private marqueService : MarqueService, private route: ActivatedRoute, private route2: Router) { }
 
   ngOnInit() {
     this.idBrand = this.route.snapshot.params['idBrand'];
@@ -42,8 +42,10 @@ idBrand: number;
     this.marqueService.getProduct(this.idBrand).subscribe((res)=> {
       this.brand=res;
     });
+  }
 
-
-}
+  goPlaces(idModel: any) {
+    this.route2.navigate(['/', 'details', idModel]);
+  }
 
 }

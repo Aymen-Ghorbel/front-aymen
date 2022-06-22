@@ -51,7 +51,7 @@ export class BasicProgressBarComponent implements OnInit {
   uploadLoading = false;
   test = false;
   disableSendDomiciliation = true;
-  contractReceived = true;
+  contractReceived = false;
 
   selectedFile1: any;
   selectedFile2: any;
@@ -69,9 +69,10 @@ export class BasicProgressBarComponent implements OnInit {
 
  
 
-    console.log('idCredit inlocal storage: ',localStorage.getItem("idCredit"));
-    console.log('credit in local storage: ',localStorage.getItem("credit"));
-    console.log('model in local storage: ',localStorage.getItem("model"));
+    console.log('idCredit inlocal storage: ', localStorage.getItem("idCredit"));
+    console.log('credit in local storage: ', localStorage.getItem("credit"));
+    console.log('model in local storage: ', localStorage.getItem("model"));
+    console.log('generated list id in local storage: ', localStorage.getItem("idGeneratedList"));
     console.log('show: ',this.show);
     console.log('resp stat: ',this.uploadResponseStatus);
     console.log('loading: ',this.uploadLoading);
@@ -123,6 +124,10 @@ export class BasicProgressBarComponent implements OnInit {
           return 25;
       case "En cours de traitement":
           return 50; 
+      case "En cours":
+          return 60; 
+      case "en attente des documents":
+          return 75; 
     }
   }
 
@@ -244,7 +249,7 @@ export class BasicProgressBarComponent implements OnInit {
 
     this.uploadLoading = true;
 
-    fdDocs.append('id',this.idCredit);
+    fdDocs.append('id',localStorage.getItem("idGeneratedList"));
     fdDocs.append('FichPaie1',this.selectedFile1);
     fdDocs.append('FichPaie2',this.selectedFile2);
     fdDocs.append('FichPaie3',this.selectedFile3);
@@ -265,6 +270,7 @@ export class BasicProgressBarComponent implements OnInit {
         console.log('status ',res.status);   
         this.uploadResponseStatus = res.status;
         console.log('test status 200',this.uploadResponseStatus==200);
+        // this.percentage=80;
         });   
       });
     
@@ -345,6 +351,12 @@ export class BasicProgressBarComponent implements OnInit {
       }
       case "En cours de traitement": {
         return "En cours de traitement..."; 
+      }
+      case "En cours": {
+        return "En cours de traitement..."; 
+      }
+      case "en attente des documents": {
+        return "En attente des documents..."; 
       }
     };
   }

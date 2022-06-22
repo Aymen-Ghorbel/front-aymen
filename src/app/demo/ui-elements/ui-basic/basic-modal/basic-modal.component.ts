@@ -119,6 +119,16 @@ export class BasicModalComponent implements OnInit {
               this.simulationDt = credits[credits.length - 1].simulation;
               this.idCredit = credits[credits.length - 1].id;
               this.loading = false;
+              this.creditS.generateList(this.idCredit).subscribe(
+                ()=>{},
+                (res)=>{
+                  console.log('list generation', );
+                  localStorage.removeItem('idGeneratedList');
+                  localStorage.setItem("idGeneratedList", this.creditS.getIdFromGeneratedList(res.error.text));
+                  console.log('list id from local storage',localStorage.getItem("idGeneratedList"));
+                  console.log('id Credit', this.idCredit);
+                }
+                )
             });
           });
         });

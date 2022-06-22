@@ -10,7 +10,7 @@ export class SeoChart1 {
     dataLabels: {
       enabled: false
     },
-    colors: ['#5499C7'],
+    colors: ['#254676'],
     fill: {
       type: 'solid',
       opacity: 0.3,
@@ -18,8 +18,8 @@ export class SeoChart1 {
     markers: {
       size: 2,
       opacity: 0.9,
-      colors: '#5499C7',
-      strokeColor: '#5499C7',
+      colors: '#254676',
+      strokeColor: '#254676',
       strokeWidth: 2,
       hover: {
         size: 4,

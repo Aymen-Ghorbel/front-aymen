@@ -34,7 +34,7 @@ $grays: map-merge(
   $grays
 );
 
-$blue:    #5499C7 ;  // change
+$blue:    #254676 ;  // change
 $indigo:  #6610f2 ;
 $purple:  #6f42c1 ;
 $pink:    #e83e8c ;
@@ -67,7 +67,8 @@ $colors: map-merge(
 );
 
 $primary:       $blue;  // change
-$secondary:     $gray-600;  // change
+// $secondary:     $gray-600;  // change
+$secondary:     #D7811B;  // change
 $success:       $green;  // change
 $info:          $cyan;  // change
 $warning:       $yellow;  // change
